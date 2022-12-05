@@ -7,7 +7,6 @@ More Information on requirements [here](https://github.com/paidy/interview/blob/
 ## Installation
 
 IDE: [IntelliJ](https://www.jetbrains.com/idea/)
-
 Framework: [SpringBoot](https://spring.io/projects/spring-boot)
 
 For building and running the application you need the following:
@@ -21,3 +20,28 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 ```shell
 mvn spring-boot:run
 ```
+
+Tests to Run:
+- RestaurantApiIntegrationTest: Multi-thread integration test simulating 10 threads interacting with Restaurant Api
+- RestaurantApisingleThreadTest: Single Thread Integration test; testing all endpoint behavior
+- OrderControllerUnitTests: Basic Unit Tests for Order Controller
+
+## Database Configuration
+MongoDb was used as I believe a NoSQL styled database best suited this assignments use case.
+
+Dummy Restaurant MongoDb instance has been commited intentionally for added convenience.
+
+## API Usage Overview
+- `GET /orders/getAllItems` - returns all items across tables (`No Parameter Required`)
+- `GET /orders/getOrdersForTable`- returns items from a specific table (`Parameter Required: List<Table>`)
+- `GET /orders/getItemForTable` - returns specifc item from a specific table (`Parameter Required: Integer & String`)
+- `POST /orders/createOrder`- creates a order and stores in MongoDB (`Request Body Required: OrderRequestBody`)
+- `POST orders/deleteOrder` - removes a order with a specific UID from MongoDB instace (`Request Body Required: DeleteOrderRequestBody`)
+
+## Future Improvements
+- Was planning on adding caching specifically by implementing HazelCast (distributed cache). However, given that this application only expects around 10 simulatenous connections, I decided this was over a kill unless requirements change in the future.
+- If requirements were to change and cookingTime were to become non-static, thus requiring a update to the cooking. I would explore two options: 
+    1) Store the cooking time as a Date Object in the future. Any requests coming into the restuarant would trigger a comparison between the current and stored time. Update accordingly.
+    2) Deploy a seperate AWS Lamba or GCP Function job to change the stored values in MongoDB.
+
+

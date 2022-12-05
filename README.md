@@ -22,9 +22,9 @@ mvn spring-boot:run
 ```
 
 Tests to Run:
-- RestaurantApiIntegrationTest: Multi-thread integration test simulating 10 threads interacting with Restaurant Api
-- RestaurantApisingleThreadTest: Single Thread Integration test; testing all endpoint behavior
-- OrderControllerUnitTests: Basic Unit Tests for Order Controller
+- `RestaurantApiIntegrationTest`: Multi-thread integration test simulating 10 threads interacting with Restaurant Api
+- `RestaurantApisingleThreadTest`: Single Thread Integration test; testing all endpoint behavior
+- `OrderControllerUnitTests`: Basic Unit Tests for Order Controller
 
 ## Database Configuration
 MongoDb was used as I believe a NoSQL styled database best suited this assignments use case.

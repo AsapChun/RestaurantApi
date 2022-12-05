@@ -27,9 +27,9 @@ Tests to Run:
 - `OrderControllerUnitTests`: Basic Unit Tests for Order Controller
 
 ## Database Configuration
-MongoDb was used as I believe a NoSQL styled database best suited this assignments use case.
+Database choice: MongoDb. ( I believe a NoSQL styled database best suited this assignments use case)
 
-Dummy Restaurant MongoDb instance has been commited intentionally for added convenience.
+Dummy Restaurant MongoDb instance has been commited intentionally to `application.properties` for added convenience.
 
 ## API Usage Overview
 - `GET /orders/getAllItems` - returns all items across tables (`No Parameter Required`)

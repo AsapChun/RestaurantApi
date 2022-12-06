@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 @SpringBootTest(classes = RestaurantApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RestaurantSingleThreadTest {
+public class SingleThreadIntegrationTest {
 
     public final String SERVER_URI = "http://localhost:8080/orders/";
 

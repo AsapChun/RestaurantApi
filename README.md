@@ -21,9 +21,9 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
-Tests to Run:
+Tests to Run (Important Note: Please ensure Restuarant API is running before trying Integration tests):
 - `RestaurantApiIntegrationTest`: Multi-thread integration test simulating 10 threads interacting with Restaurant Api
-- `RestaurantApisingleThreadTest`: Single Thread Integration test; testing all endpoint behavior
+- `SingleThreadIntegrationTest`: Single Thread Integration test; testing all endpoint behavior
 - `OrderControllerUnitTests`: Basic Unit Tests for Order Controller
 
 ## Database Configuration

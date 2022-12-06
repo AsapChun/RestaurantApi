@@ -7,7 +7,6 @@ import com.seanchun.RestaurantApi.model.Table;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
@@ -17,8 +16,6 @@ import java.util.concurrent.Executors;
 
 @SpringBootTest(classes = RestaurantApiApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class RestaurantApiIntegrationTest {
-    @LocalServerPort
-    private int port;
 
     /*
         Ensure to run RestaurantApiApplication before running Integration Test
@@ -28,6 +25,10 @@ public class RestaurantApiIntegrationTest {
 
     public static final String SERVER_URI = "http://localhost:8080/orders/";
 
+    /*
+        This tests simulates with 10 concurrent threads the adding and removing
+        of Orders from the Restaurant API
+     */
     @Test
     public void multiThreadTest() throws InterruptedException {
         System.out.println("***** Multiple Concurrent Threads Test *****");

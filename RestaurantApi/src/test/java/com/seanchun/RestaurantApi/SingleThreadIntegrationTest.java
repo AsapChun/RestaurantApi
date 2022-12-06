@@ -7,7 +7,6 @@ import com.seanchun.RestaurantApi.model.Table;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
@@ -20,12 +19,10 @@ public class SingleThreadIntegrationTest {
 
     public final String SERVER_URI = "http://localhost:8080/orders/";
 
-    @LocalServerPort
-    private int port;
-
     /*
         Ensure to run RestaurantApiApplication before running Integration Test
-        Single Thread Integration Test
+        Single Thread Integration Test to test basic functionality of all
+        endpoints for a single thread
     */
 
     @Test
@@ -57,12 +54,7 @@ public class SingleThreadIntegrationTest {
         Assert.assertEquals(tTwo.size(), 0);
         Assert.assertEquals(tThree.size(), 0);
     }
-    private List<LinkedHashMap> testGetAllOrders() {
-        RestTemplate restTemplate = new RestTemplate();
-        //we can't get List<Table> because JSON convertor doesn't know the type of
-        //object in the list and hence convert it to default JSON object type LinkedHashMap
-        return restTemplate.getForObject(SERVER_URI+"/getAllOrders", List.class);
-    }
+
     private void testCreateOrders() {
         RestTemplate restTemplate = new RestTemplate();
         OrderRequestBody order1 = new OrderRequestBody(1,

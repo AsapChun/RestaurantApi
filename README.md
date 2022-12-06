@@ -36,10 +36,10 @@ Dummy Restaurant MongoDb instance has been commited intentionally to `applicatio
 - `GET /orders/getOrdersForTable`- returns items from a specific table (`Parameter Required: List<Table>`)
 - `GET /orders/getItemForTable` - returns specifc item from a specific table (`Parameter Required: Integer & String`)
 - `POST /orders/createOrder`- creates a order and stores in MongoDB (`Request Body Required: OrderRequestBody`)
-- `POST orders/deleteOrder` - removes a order with a specific UID from MongoDB instace (`Request Body Required: DeleteOrderRequestBody`)
+- `POST /orders/deleteOrder` - removes a order with a specific UID from MongoDB instace (`Request Body Required: DeleteOrderRequestBody`)
 
 ## Future Improvements
-- Planned on adding caching specifically by implementing HazelCast (distributed cache). However, given that this application only expects around 10 simulatenous connections, I decided this was over kill unless requirements change in the future.
+- Planned on adding caching by implementing HazelCast (distributed cache). However, given that this application only expects around 10 simulatenous connections, I decided this was over kill unless requirements change in the future.
 - If requirements were to change and cookingTime were to become non-static, thus requiring a update to the cooking. I would explore two options: 
     1) Store the cooking time as a Date Object in the future. Any requests coming into the restuarant would trigger a comparison between the current and stored time. Update accordingly.
     2) Deploy a seperate AWS Lamba or GCP Function job to change the stored values in MongoDB.

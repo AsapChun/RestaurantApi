@@ -12,7 +12,7 @@ public class OrderRequestBody {
         this.foodItems = foodItems;
     }
 
-
+    // Implemented custom validator as @Valid and @NotEmpty annotations were not working
     public boolean validateRequestBody() {
         if (this.tableNumber == null || this.foodItems == null || this.foodItems.isEmpty()) {
             return false;

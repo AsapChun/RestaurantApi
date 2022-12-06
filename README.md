@@ -38,10 +38,12 @@ Dummy Restaurant MongoDb instance configuration parameters has been commited int
 - `POST /orders/createOrder`- creates a order and stores in MongoDB (`Request Body Required: OrderRequestBody`)
 - `POST /orders/deleteOrder` - removes a order with a specific UID from MongoDB instace (`Request Body Required: DeleteOrderRequestBody`)
 
-## Future Improvements
-- Planned on adding caching by implementing HazelCast (distributed cache). However, given that this application only expects around 10 simulatenous connections, I decided this was over kill unless requirements change in the future.
-- If requirements were to change and cookingTime were to become non-static, thus requiring a update to the cooking. I would explore two options: 
+## Future Improvements To Make Production Ready
+- Planned on adding caching by implementing HazelCast (distributed cache) in cache aside pattern. However, given that this application only expects around 10 simulatenous connections, I decided this was over kill as the basic Spring Boot automatically is able to handle around 200 simultaneous requests.
+- If requirements were to change and cookingTime were to become non-static, thus requiring a real-time cooking time. I would explore three options: 
     1) Store the cooking time as a Date Object in the future. Any requests coming into the restuarant would trigger a comparison between the current and stored time. Update accordingly.
     2) Deploy a seperate AWS Lamba or GCP Function job to change the stored values in MongoDB.
+    3) Create a seperate microservice/database to specifically ensure real time updates to cooking times for orders
+- Implement basic JWT authenication handling between client and server such that only known client applications are allowed to add orders.
 
 
